@@ -1,0 +1,119 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+table.frm {
+  width: 100%;
+}
+
+table.grd {
+  width: 100%;
+  border: solid 1px #989a96;
+}
+
+  table.grd tr {
+    height: 35px;
+    border-bottom: solid 1px #babbb9;
+  }
+
+    table.grd tr:hover {
+      background-color: #e01a76;
+    }
+
+  table.grd th {
+    background-color: #1b0579;
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+
+  table.grd td {
+    background-color: #eeebeb;
+    color: black;
+    padding-left: 10px;
+  }
+
+    table.grd td.accciones {
+      width: 210px;
+    }
+
+      table.grd td.accciones .bt {
+        width: 95px;
+        margin: 1px;
+        padding: 1px;
+      }
+
+.tamano-regular {
+  width: 150px;
+  margin: 2px;
+}
+
+.w-500 {
+  width: 500px;
+}
+
+.title {
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 30px;
+}
+
+.message-error {
+  border: solid 1px #ff0000;
+  height: 30px;
+  background-color: #d8d2d2;
+}
+
+.message-exito {
+  border: solid 1px #16a233;
+  height: 30px;
+  background-color: #d8d2d2;
+}
+
+input[type=text]:focus {
+  background-color: #e6eec0;
+}
+
+
+.tar {
+  text-align: right;
+  padding-right: 3px;
+}
+
+.total {
+  font-weight: bold;
+}
+
+.modalphone{
+    z-index:90000;
+}
+
+
+.ng-select.customselet {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+
+  .ng-select.customselet .ng-select-container {
+    min-height: 0px;
+    border-radius: 0;
+  }

@@ -1,0 +1,8 @@
+{     "Id" : 0,
+     "Name" : "Amaury",
+     "LastName:": "Nunez Santos",
+      "DateOfBirth" :"2022-01-01",
+      "ContactPhoneNumber" : "8497519952",
+      "Gender" :"M",
+      "EmailAddress": "amaurynunez@gmail.com" 
+}

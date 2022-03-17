@@ -1,0 +1,111 @@
+<div class="row">
+
+  <div class="title">
+    <h2>Mantenimiento de Clientes</h2>
+  </div>
+  <div class="col-md-12 message-exito" *ngIf="messageExito.length > 0">
+    {{messageExito}}
+  </div>
+  <div class="col-md-12 message-error " *ngIf="messageError.length > 0">
+    {{messageError}}
+  </div>
+
+  <br />
+  <div class="col-md-12" *ngIf="state > 0">
+    <form #_form="ngForm">
+    </form>
+    <table class="frm">
+      <tr>
+        <th> Codigo</th>
+        <td> <input type="number" disabled readonly id="txtCodigo" [(ngModel)]="record.id" /></td>
+      </tr>
+      <tr>
+        <th> Nombre Cliente</th>
+        <td> <input type="text" id="txtCustName" requited [(ngModel)]="record.custName" class="w-500" maxlength="80" /></td>
+      </tr>
+      <tr>
+        <th> Dirección</th>
+        <td> <input type="text" id="txtAddress" requited [(ngModel)]="record.address" class="w-500" maxlength="100" /></td>
+      </tr>
+      <tr>
+        <th> Estado</th>
+        <td>
+
+          <select name="estado" [(ngModel)]="record.status">
+            <option [ngValue]="c.id" *ngFor="let c of statuses">
+              {{c.id}}
+            </option>
+          </select>
+
+
+        </td>
+      </tr>
+      <tr>
+        <th> Tipo Cliente</th>
+        <td>
+
+          <select name="customerType" ngModel [(ngModel)]="record.customerTypeId">
+            <option [ngValue]="c.id" *ngFor="let c of customerTypes">
+              {{c.description}}
+            </option>
+          </select>
+
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type="button" class="btn btn-secondary tamano-regular" (click)="cancel()"> Cancelar</button>
+
+        </td>
+        <td>
+          <button type="submit" class="btn btn-success tamano-regular" (click)="save(_form)"> Guardar </button>
+
+        </td>
+      </tr>
+    </table>
+    <div class="spinner-border" role="status" *ngIf="loading == true">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="col-md-12" *ngIf="state == 0">
+
+    <button type="button" class="btn btn-primary m-b-5 tamano-regular" (click)="openCustomerModal(0)">  Nuevo</button>
+    <div class="spinner-border" role="status" *ngIf="loading == true">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <table class="grd">
+      <thead>
+
+        <tr>
+          <th> Codigo</th>
+          <th> Nombres</th>
+          <th> Apellidos</th>
+          <th> Fecha Nac.</th>
+          <th> Email Address</th>
+          <th> Genero</th>
+          <th> Tels</th>
+          <th> Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of records">
+          <td> {{r.id}}</td>
+          <td>{{r.name}}</td>
+          <td>{{r.lastName}}</td>
+          <td>{{r.dateOfBirth | date : 'dd/MM/yyyy'}}</td>
+          <td>{{r.emailAddress}}</td>
+          <td>{{r.gender}}</td>
+          <td>{{r.phones.length}}</td>
+          <td class="accciones">
+            <button type="button" class="btn-warning btn bt" (click)="edit(r)"> Editar </button>
+            <button type="button" class="btn-danger btn bt" (click)="delete(r)"> Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

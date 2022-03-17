@@ -1,0 +1,12 @@
+E:\Git\Pruebas\EvalTecnicaUnit.Core\bin\Debug\net5.0\EvalTecnicaUnit.Core.deps.json
+E:\Git\Pruebas\EvalTecnicaUnit.Core\bin\Debug\net5.0\EvalTecnicaUnit.Core.dll
+E:\Git\Pruebas\EvalTecnicaUnit.Core\bin\Debug\net5.0\ref\EvalTecnicaUnit.Core.dll
+E:\Git\Pruebas\EvalTecnicaUnit.Core\bin\Debug\net5.0\EvalTecnicaUnit.Core.pdb
+E:\Git\Pruebas\EvalTecnicaUnit.Core\obj\Debug\net5.0\EvalTecnicaUnit.Core.csproj.AssemblyReference.cache
+E:\Git\Pruebas\EvalTecnicaUnit.Core\obj\Debug\net5.0\EvalTecnicaUnit.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git\Pruebas\EvalTecnicaUnit.Core\obj\Debug\net5.0\EvalTecnicaUnit.Core.AssemblyInfoInputs.cache
+E:\Git\Pruebas\EvalTecnicaUnit.Core\obj\Debug\net5.0\EvalTecnicaUnit.Core.AssemblyInfo.cs
+E:\Git\Pruebas\EvalTecnicaUnit.Core\obj\Debug\net5.0\EvalTecnicaUnit.Core.csproj.CoreCompileInputs.cache
+E:\Git\Pruebas\EvalTecnicaUnit.Core\obj\Debug\net5.0\EvalTecnicaUnit.Core.dll
+E:\Git\Pruebas\EvalTecnicaUnit.Core\obj\Debug\net5.0\ref\EvalTecnicaUnit.Core.dll
+E:\Git\Pruebas\EvalTecnicaUnit.Core\obj\Debug\net5.0\EvalTecnicaUnit.Core.pdb

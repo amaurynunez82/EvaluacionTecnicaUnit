@@ -1,0 +1,70 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title" *ngIf="id ==''">Creación de Cliente</h4>
+  <h4 class="modal-title" id="modal-basic-title" *ngIf="id !=''">Actualización de Cliente</h4>
+  <span type="button" class="close" aria-label="Close" (click)="modal.dismiss('CrossClick')">
+    <span aria-hidden="true">&times;</span>
+  </span>
+</div>
+<form autocomplete="off" (ngSubmit)="save()" [formGroup]="_form">
+
+
+  <div class="container m-t-10">
+
+    <div class="col-md-12">
+
+      <div class="form-group row" style="display:none;">
+        <label for="txtId" class="col-sm-3 col-md-3 col-form-label"> Id</label>
+        <div class="col-sm-3 col-md-3">
+          <input type="number"
+                 id="txtId"
+                 class="form-control"
+                 placeholder="Código"
+                 formControlName="id" />
+        </div>
+      </div>
+
+      <div class="form-group row" style="display:none;">
+        <label for="CustomerId" class="col-sm-3 col-md-3 col-form-label"> Customer</label>
+        <div class="col-sm-3 col-md-3">
+          <input type="number"
+                 id="CustomerId"
+                 class="form-control"
+                 placeholder="Cliente"
+                 formControlName="customerId" />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="txtPhone" class="col-sm-3  col-md-3 col-form-label">Teléfono</label>
+        <div class="col-sm-9 col-md-9">
+          <input type="text"
+                 id="txtPhone"
+                 class="form-control"
+                 placeholder="phone"
+                 formControlName="phone"
+                 maxlength="10" />
+          <span *ngIf="vh.isValidField(_form,'phone')" class="text-danger">Debe digitar el numero de telefono</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+
+
+
+<div class="modal-footer">
+  <div>
+    <div *ngIf="this.loading != true">
+      <button type="button" class="btn-primary btn mr-1" (click)="modal.close('CloseClick')">
+        <i class="fa fa-close">
+        </i> Cancelar
+      </button>
+      <button type="submit" class="btn btn-outline-dark" (click)="save()" [disabled]="_form.invalid">
+        Agregar
+      </button>
+
+    </div>
+  </div>
+
+</div>

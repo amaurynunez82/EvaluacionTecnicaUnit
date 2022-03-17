@@ -1,0 +1,197 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title" *ngIf="id ==''">Creación de Cliente</h4>
+  <h4 class="modal-title" id="modal-basic-title" *ngIf="id !=''">Actualización de Cliente</h4>
+  <span type="button" class="close" aria-label="Close" (click)="modal.dismiss('CrossClick')">
+    <span aria-hidden="true">&times;</span>
+  </span>
+</div>
+<form autocomplete="off" (ngSubmit)="save()" [formGroup]="_form">
+
+
+  <div class="container m-t-10">
+    <div class="col-md-12 message-exito" *ngIf="messageExito.length > 0">
+      {{messageExito}}
+    </div>
+    <div class="col-md-12 message-error " *ngIf="messageError.length > 0">
+      {{messageError}}
+    </div>
+    <div class="col-md-12">
+
+      <div class="form-group row">
+        <label for="CustomerId" class="col-sm-3 col-md-3 col-form-label"> Código</label>
+        <div class="col-sm-3 col-md-3">
+          <input type="number"
+                 id="CustomerId"
+                 class="form-control"
+                 placeholder="Código"
+                 formControlName="id"
+                 value="{{ record.dateOfBirth | date:'yyyy-MM-dd' }}"
+                 disabled />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="txtName" class="col-sm-3  col-md-3 col-form-label">Nombres</label>
+        <div class="col-sm-9 col-md-9">
+          <input type="text"
+                 id="txtName"
+                 class="form-control"
+                 placeholder="Nombre"
+                 formControlName="name"
+                 maxlength="80" />
+          <span *ngIf="vh.isValidField(_form,'name')" class="text-danger">Debe digitar el nombre </span>
+        </div>
+      </div>
+
+
+
+      <div class="form-group row">
+        <label for="txtLastName" class="col-sm-3  col-md-3 col-form-label">Apellidos</label>
+        <div class="col-sm-9 col-md-9">
+          <input type="text"
+                 id="txtLastName"
+                 class="form-control"
+                 placeholder="Apellidos"
+                 formControlName="lastName"
+                 maxlength="80" />
+          <span *ngIf="vh.isValidField(_form,'lastName')" class="text-danger">Debe digitar los apellidos</span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="txtDateOfBirth" class="col-sm-3  col-md-3 col-form-label">Fecha de Nacimiento</label>
+        <div class="col-sm-9 col-md-9">
+          <input type="date"
+                 id="txtDateOfBirth"
+                 class="form-control"
+                 placeholder="Fecha Nacimiento"
+                 formControlName="dateOfBirth"
+                 maxlength="80" />
+          <span *ngIf="vh.isValidField(_form,'dateOfBirth')" class="text-danger">Debe digitar la fecha de nacimiento</span>
+        </div>
+      </div>
+
+
+
+      <div class="form-group row">
+        <label for="txtEmailAddress" class="col-sm-3  col-md-3 col-form-label">Correo Electrónico</label>
+        <div class="col-sm-9 col-md-9">
+          <input type="email"
+                 id="txtEmailAddress"
+                 class="form-control"
+                 placeholder="Dirección de correo electrónico"
+                 formControlName="emailAddress"
+                 maxlength="80" />
+          <span *ngIf="vh.isValidField(_form,'emailAddress')" class="text-danger">Debe indicar su correo electrónico</span>
+        </div>
+      </div>
+
+
+      <!--<div class="form-group row">
+    <label for="ddlGender" class="col-sm-3  col-md-3 col-form-label">Genero</label>
+    <div class="col-sm-9 col-md-9">
+      <select name="ddlGender"  formControlname="gender" (change)="changeGender($event)">
+        <option [ngValue]="c.id" *ngFor="let c of genders" value="{{c.id}}">
+          {{c.value}}
+        </option>
+      </select>
+      <span *ngIf="vh.isValidField(_form,'gender')" class="text-danger">Debe indicar el genero o sexo de la persona</span>
+    </div>
+  </div>-->
+
+      <div class="form-group row">
+        <label for="ddlGenders" class="col-sm-3  col-md-3 col-form-label"> Genero</label>
+        <div class="col-sm-9 col-md-9">
+
+          <ng-select [items]="genders"
+                     bindLabel="value"
+                     bindValue="id"
+                     class="customselet"
+                     formControlName="gender"
+                     [class.is-invalid]="vh.isValidField(_form,'gender')">
+          </ng-select>
+
+          <span *ngIf="vh.isValidField(_form,'gender')" class="text-danger">El Genero es requerido </span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="txtContactPhoneNumber" class="col-sm-3  col-md-3 col-form-label">Teléfono Principal</label>
+        <div class="col-sm-9 col-md-9">
+          <input type="text"
+                 id="txtContactPhoneNumber"
+                 class="form-control"
+                 placeholder="Telefono Contacto Principal"
+                 formControlName="contactPhoneNumber"
+                 maxlength="10" />
+          <span *ngIf="vh.isValidField(_form,'contactPhoneNumber')" class="text-danger">Debe indicar un numero de contacto</span>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-3">
+          <button type="button" id="btnAddPhone" class="btn btn-outline-dark" (click)="creatOreditPhone({id:0, customerId: 0, phone:''})">Agregar telefono</button>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <table class="grd">
+            <thead>
+
+              <tr>
+                <th> Telefono</th>
+                <th> Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let r of _form.value.phones; index as i">
+                <td>{{r.phone}}</td>
+                <td class="accciones">
+                  <!--
+                 <button type="button" class="btn-warning btn bt" (click)="creatOreditPhone(r)"> Editar </button>
+
+              -->
+                  <button type="button" class="btn-danger btn bt" (click)="deletePhone(r, i)"> Borrar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  {{phones | json}}
+
+</form>
+
+
+
+
+<div class="modal-footer">
+  <div>
+    <div *ngIf="this.loading == true">
+      <div _ngcontent-iko-c114="" role="status" class="spinner-grow text-primary ng-tns-c94-49">
+        <span _ngcontent-iko-c114="" class="sr-only">Cargando...</span>
+      </div>
+    </div>
+    <div *ngIf="this.loading != true">
+      <button type="button" class="btn-primary btn mr-1" (click)="modal.close('CloseClick')">
+        <i class="fa fa-close">
+        </i> Cancelar
+      </button>
+      <button type="submit" class="btn btn-outline-dark" (click)="save()" [disabled]="_form.invalid">
+        Guardar
+      </button>
+
+    </div>
+  </div>
+
+</div>
