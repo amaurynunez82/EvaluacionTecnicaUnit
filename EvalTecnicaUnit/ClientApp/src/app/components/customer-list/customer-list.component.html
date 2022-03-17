@@ -10,67 +10,8 @@
     {{messageError}}
   </div>
 
-  <br />
-  <div class="col-md-12" *ngIf="state > 0">
-    <form #_form="ngForm">
-    </form>
-    <table class="frm">
-      <tr>
-        <th> Codigo</th>
-        <td> <input type="number" disabled readonly id="txtCodigo" [(ngModel)]="record.id" /></td>
-      </tr>
-      <tr>
-        <th> Nombre Cliente</th>
-        <td> <input type="text" id="txtCustName" requited [(ngModel)]="record.custName" class="w-500" maxlength="80" /></td>
-      </tr>
-      <tr>
-        <th> Dirección</th>
-        <td> <input type="text" id="txtAddress" requited [(ngModel)]="record.address" class="w-500" maxlength="100" /></td>
-      </tr>
-      <tr>
-        <th> Estado</th>
-        <td>
-
-          <select name="estado" [(ngModel)]="record.status">
-            <option [ngValue]="c.id" *ngFor="let c of statuses">
-              {{c.id}}
-            </option>
-          </select>
-
-
-        </td>
-      </tr>
-      <tr>
-        <th> Tipo Cliente</th>
-        <td>
-
-          <select name="customerType" ngModel [(ngModel)]="record.customerTypeId">
-            <option [ngValue]="c.id" *ngFor="let c of customerTypes">
-              {{c.description}}
-            </option>
-          </select>
-
-
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="button" class="btn btn-secondary tamano-regular" (click)="cancel()"> Cancelar</button>
-
-        </td>
-        <td>
-          <button type="submit" class="btn btn-success tamano-regular" (click)="save(_form)"> Guardar </button>
-
-        </td>
-      </tr>
-    </table>
-    <div class="spinner-border" role="status" *ngIf="loading == true">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-
-
-  <div class="col-md-12" *ngIf="state == 0">
+  
+  <div class="col-md-12">
 
     <button type="button" class="btn btn-primary m-b-5 tamano-regular" (click)="openCustomerModal(0)">  Nuevo</button>
     <div class="spinner-border" role="status" *ngIf="loading == true">

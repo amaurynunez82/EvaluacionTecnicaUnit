@@ -78,7 +78,7 @@ export class CustomerUpdateComponent implements OnInit {
     if (this.id && this.id !== "" && this.id !== "0") {
 
       this._customerService.getById(this.id).subscribe(result => {
-        this.record = result; 
+        this.record = result;
 
         this._form.patchValue(result);
         this._form.controls.phones = this.fb.array(result.phones);
@@ -124,7 +124,7 @@ export class CustomerUpdateComponent implements OnInit {
 
     }, (error) => {
       this.loading = false;
-      //this.toastr.error(ErrorHandler.handle(error)); 
+      this.messageError = ErrorHandler.handle(reason);
     });
 
   }
@@ -140,7 +140,7 @@ export class CustomerUpdateComponent implements OnInit {
     modalRef.result.then((result) => {
 
       if (result == 'CloseClick') {
-        //Por aqui entra cuando se le da al boton de cancelar
+
       }
       else {
 
@@ -152,9 +152,6 @@ export class CustomerUpdateComponent implements OnInit {
             fg.patchValue(result.record);
             this._form.controls.phones.push(fg);
             this._form.setControl("phones", this._form.controls.phones);
-
-  
-
           }
           else {
             phone = result.record;
@@ -162,7 +159,7 @@ export class CustomerUpdateComponent implements OnInit {
         }
       }
     }, (reason) => {
-      //Por aqui entra cuando se le da a la X
+      this.messageError = ErrorHandler.handle(reason);
     });
 
   }
@@ -182,14 +179,14 @@ export class CustomerUpdateComponent implements OnInit {
       else {
         //Por aqui cuando se le da al boton de guardar
         if (result.result == 'ok') {
-          //this.toastr.success(this.l.localize('TheRecordWasSavedSuccessfully'), 'Marfa');
+          this.messageExito = "Registro creado exitosamente";
           if (result.creating == true) {
 
           }
         }
       }
     }, (reason) => {
-      //Por aqui entra cuando se le da a la X
+      this.messageError = ErrorHandler.handle(reason);
     });
 
   }

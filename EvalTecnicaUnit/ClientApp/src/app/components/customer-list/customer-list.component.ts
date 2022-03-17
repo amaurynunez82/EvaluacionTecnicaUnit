@@ -84,14 +84,14 @@ export class CustomerListComponent implements OnInit {
 
       this.loading = false;
       if (this.state == 1) {
-        this.state = 0;
         this.messageExito = "El registro fue creado exitosamente";  
       }
       else {
-        this.state = 0;
         this.messageExito = "El registro fue actualizado exitosamente";
       }
+      this.state = 0;
       this.loadData();
+
     }, error => {
       this.loading = false;
       this.messageError = ErrorHandler.handle(error);

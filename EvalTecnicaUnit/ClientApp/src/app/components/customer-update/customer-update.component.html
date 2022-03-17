@@ -87,18 +87,6 @@
       </div>
 
 
-      <!--<div class="form-group row">
-    <label for="ddlGender" class="col-sm-3  col-md-3 col-form-label">Genero</label>
-    <div class="col-sm-9 col-md-9">
-      <select name="ddlGender"  formControlname="gender" (change)="changeGender($event)">
-        <option [ngValue]="c.id" *ngFor="let c of genders" value="{{c.id}}">
-          {{c.value}}
-        </option>
-      </select>
-      <span *ngIf="vh.isValidField(_form,'gender')" class="text-danger">Debe indicar el genero o sexo de la persona</span>
-    </div>
-  </div>-->
-
       <div class="form-group row">
         <label for="ddlGenders" class="col-sm-3  col-md-3 col-form-label"> Genero</label>
         <div class="col-sm-9 col-md-9">
@@ -152,8 +140,7 @@
                 <td class="accciones">
                   <!--
                  <button type="button" class="btn-warning btn bt" (click)="creatOreditPhone(r)"> Editar </button>
-
-              -->
+                  -->
                   <button type="button" class="btn-danger btn bt" (click)="deletePhone(r, i)"> Borrar</button>
                 </td>
               </tr>
